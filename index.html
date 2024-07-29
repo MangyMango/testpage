@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MangoMango</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <div class="container">
             <div class="logo">MangoMango</div>
             <nav>
                 <ul>
@@ -22,62 +22,45 @@
             <button class="mode-toggle" id="mode-toggle">
                 <i class="fas fa-moon"></i>
             </button>
-        </header>
+        </div>
+    </header>
 
-        <main>
-            <section id="characters">
-                <h2>Characters</h2>
-                <div class="card-grid">
-                    <!-- Example card, repeat for each character -->
-                    <div class="card">
-                        <img src="images/elina.png" alt="Elina" class="card-image">
-                        <div class="card-content">
-                            <h3 class="card-title">Elina</h3>
-                            <p class="card-description">Vampire, Defrosted. Vampire who tries to be allat...</p>
-                            <div class="button-group">
-                                <a href="https://files.catbox.moe/h03sud.png" class="button">catbox</a>
-                                <a href="https://chub.ai/characters/MangyMango/elina-vampire-who-tries-to-be-allat-defrosted-9094692989d2" class="button">chub</a>
-                            </div>
+    <main class="container">
+        <section id="characters">
+            <h2>Characters</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="images/elina.png" alt="Elina" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Elina</h3>
+                        <p class="card-description">Vampire, Defrosted. Vampire who tries to be allat...</p>
+                        <div class="button-group">
+                            <a href="https://files.catbox.moe/h03sud.png" class="button">catbox</a>
+                            <a href="https://chub.ai/characters/MangyMango/elina-vampire-who-tries-to-be-allat-defrosted-9094692989d2" class="button">chub</a>
                         </div>
                     </div>
-                    <!-- Repeat for other characters -->
                 </div>
-            </section>
+                <!-- Add more character cards here -->
+            </div>
+        </section>
 
-            <section id="jailbreaks">
-                <h2>Jailbreaks</h2>
-                <ul>
-                    <li><a href="https://files.catbox.moe/505vr7.json">Opus</a></li>
-                    <li><a href="https://files.catbox.moe/gvq42c.json">2.1</a></li>
-                </ul>
-            </section>
-        </main>
+        <section id="jailbreaks">
+            <h2>Jailbreaks</h2>
+            <ul class="jailbreak-list">
+                <li><a href="https://files.catbox.moe/505vr7.json" class="button">Opus</a></li>
+                <li><a href="https://files.catbox.moe/gvq42c.json" class="button">2.1</a></li>
+            </ul>
+        </section>
+    </main>
 
-        <footer>
+    <footer>
+        <div class="container">
             <p>Contact: sweetmango78 on discord | sweetmango78@proton.me</p>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     <script>
-        const modeToggle = document.getElementById('mode-toggle');
-        const body = document.body;
-        const icon = modeToggle.querySelector('i');
-
-        modeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
-            localStorage.setItem('mode', body.classList.contains('dark-mode') ? 'dark' : 'light');
-        });
-
-        const savedMode = localStorage.getItem('mode');
-        if (savedMode === 'dark') {
-            body.classList.add('dark-mode');
-            icon.classList.replace('fa-moon', 'fa-sun');
-        }
+        // Your existing JavaScript code here
     </script>
 </body>
 </html>
