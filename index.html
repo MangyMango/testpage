@@ -4,63 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MangoMango</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <div class="container">
+    <div class="container">
+        <header>
+            <div class="logo">MangoMango</div>
             <nav>
-                <h1>MangoMango</h1>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#characters">Characters</a></li>
                     <li><a href="#jailbreaks">Jailbreaks</a></li>
-                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-        </div>
-    </header>
+            <button class="mode-toggle" id="mode-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
 
-    <main class="container">
-        <section id="home">
-            <h2>Welcome to MangoMango</h2>
-            <p>Explore our collection of unique characters and jailbreaks.</p>
-        </section>
+        <main>
+            <section id="characters">
+                <h2>Characters</h2>
+                <div class="card-grid">
+                    <!-- Example card, repeat for each character -->
+                    <div class="card">
+                        <img src="images/elina.png" alt="Elina" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Elina</h3>
+                            <p class="card-description">Vampire, Defrosted. Vampire who tries to be allat...</p>
+                            <div class="button-group">
+                                <a href="https://files.catbox.moe/h03sud.png" class="button">catbox</a>
+                                <a href="https://chub.ai/characters/MangyMango/elina-vampire-who-tries-to-be-allat-defrosted-9094692989d2" class="button">chub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat for other characters -->
+                </div>
+            </section>
 
-        <section id="characters">
-            <h2>Characters</h2>
-            <div class="card">
-                <h3>Elina</h3>
-                <img src="images/elina.png" alt="Elina">
-                <p>Vampire, Defrosted. Vampire who tries to be allat, her backstory was unknowingly stolen from Serena...</p>
-                <a href="#" class="button">View on Catbox</a>
-                <a href="#" class="button">View on Chub</a>
-            </div>
-            <!-- Add more character cards here -->
-        </section>
+            <section id="jailbreaks">
+                <h2>Jailbreaks</h2>
+                <ul>
+                    <li><a href="https://files.catbox.moe/505vr7.json">Opus</a></li>
+                    <li><a href="https://files.catbox.moe/gvq42c.json">2.1</a></li>
+                </ul>
+            </section>
+        </main>
 
-        <section id="jailbreaks">
-            <h2>Jailbreaks</h2>
-            <div class="card">
-                <h3>Opus</h3>
-                <a href="https://files.catbox.moe/505vr7.json" class="button">Download</a>
-            </div>
-            <div class="card">
-                <h3>2.1</h3>
-                <a href="https://files.catbox.moe/gvq42c.json" class="button">Download</a>
-            </div>
-        </section>
+        <footer>
+            <p>Contact: sweetmango78 on discord | sweetmango78@proton.me</p>
+        </footer>
+    </div>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>sweetmango78 on discord | sweetmango78@proton.me</p>
-        </section>
-    </main>
+    <script>
+        const modeToggle = document.getElementById('mode-toggle');
+        const body = document.body;
+        const icon = modeToggle.querySelector('i');
 
-    <footer>
-        <div class="container">
-            <p>© 2023 MangoMango. All rights reserved.</p>
-        </div>
-    </footer>
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+            localStorage.setItem('mode', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+
+        const savedMode = localStorage.getItem('mode');
+        if (savedMode === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+    </script>
 </body>
 </html>
